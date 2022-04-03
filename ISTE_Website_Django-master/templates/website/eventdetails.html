@@ -1,0 +1,197 @@
+{%extends 'website/base.html'%}
+{%load static%}
+{%load tz%}
+{%block other_css%}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&family=Lato&display=swap" rel="stylesheet">
+
+
+{%endblock%}
+
+{%block extra_meta_tags%}
+<meta name="description" content="{{category.description}}"/>
+
+<meta property="og:title" content="ISTE Manipal" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="{{category.description}}" />
+{%if category.poster%}
+<meta property="og:image" itemprop="image" content="https://istemanipal.com{{category.poster.url}}" />
+{%else%}
+<meta property="og:image" itemprop="image" content="https://istemanipal.com{%static 'webinar.jpeg'%}" />
+{%endif%}
+<meta property="og:url" content="https://istemanipal.com/event/{{category.name_slug}}"/>
+
+<meta property="og:image:type" content="image/jpeg">
+
+<!-- Size of image. Any size up to 300. Anything above 300px will not work in WhatsApp -->
+<meta property="og:image:width" content="300">
+<meta property="og:image:height" content="300">
+{%endblock%}
+
+{%block where%}
+{{category.name}}
+{%endblock%}
+
+{%block title%}
+ISTE | {{category.name}}
+{%endblock%}
+
+{%block header%}
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-info" id="nav-color" style="background: linear-gradient(135deg, rgba(0,0,0,1) 18%, rgba(4, 101, 165) 100%); z-index:2 !important;">
+    <a class="navbar-brand" href="#"><img src="{%static 'img/iste.png'%}" width="40px" height="60px"/>ISTE Manipal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav id="ul-nav"">
+<li class="nav-item active">
+<a class="nav-link" href="{%url 'website:events'%}">Other Events</a>
+</li>
+</ul>
+</div>
+</nav>
+{%endblock%}
+
+{%block content%}
+    <!-- Category Section -->
+    <section style="background-color: #1162FB;" class="mt-5" >
+        <div class="container ">
+            <div class="row">
+                {%if category.poster%}
+                <div class="col-sm">
+                    <!-- <img src="./images/events.jpg" alt="Events Image" style="width: 100%;"> -->
+    
+                    <div class="ImageDiv" style="width: 100%;height:100%;">
+                    
+                        <img width="100%" height="100%" src="{{category.poster.url}}"  alt="Poster">
+                        
+                    </div>
+    
+                </div>
+                {%endif%}
+                <div class="col-sm text-center" style="padding-top: 10%;">
+                    <!-- <a href="{%url 'website:events'%}" target="_blank" class="d-flex justify-content-center"><h4 class="btn btn-info">Events Page</h4></a>
+                     -->
+                   
+                    <h1 class="d-flex justify-content-center">{{category.name}}</h1>
+                    {%if category.description%}
+                    <h6 class="d-flex justify-content-center" style="color:white">{{category.description}}</h6>
+                    {%endif%}
+                    <br>
+                    <p class="d-flex justify-content-center align-items-center">{{category.start_date}} {%if category.end_date%} to {{category.end_date}}{%endif%}</p>
+                    {%if category.registration_link%}
+                    <a href="{{category.registration_link}}" target="_blank" class="d-flex justify-content-center"><h4 class="btn btn-info">Click here to Register</h4></a>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{%if events%}
+    <!-- Events Section -->
+    <div class="container">
+        <h1 style="color:black;" class="d-flex justify-content-center">Coming Up</h1>
+        <div class="accordion" id="accordionExample">
+            {%for event in events%}
+            <div class="card">
+                    <div class="card-header text-center" id="heading{{forloop.counter}}" style="background-color: #1162FB;">
+                        <h2 class="mb-0 ">
+                            <button class="btn" type="button" data-toggle="collapse" data-target="#collapse{{forloop.counter}}"
+                            aria-expanded="false" aria-controls="collapse{{forloop.counter}}"><h4>{{event.name}}</h4></button>
+                        </h2>
+                    </div>
+              
+                {%autoescape off%}
+                {%timezone "Asia/Kolkata"%}
+                <div id="collapse{{forloop.counter}}" class="collapse {%if forloop.counter == 1%}show{%endif%}" aria-labelledby="heading{{forloop.counter}}" data-parent="#accordionExample">
+                    <div class="card-body">
+                       <p style="color: #666666; white-space:pre-wrap;">{{event.description}}</p>
+                        {%for item in event.event_date_set.all%}
+                        <hr>
+                        <p style="color: #666666;"><b>{{item.title}}</b></p>
+                        <p style="color: #666666;"><span style="color: red;">Venue:</span> {{item.venue}}</p>
+                        <p style="color: #666666;"><span style="color: red;">Date :</span> {{item.start_date|date:"dS F Y"}}</p>
+                        <p style="color: #666666;"><span style="color: red;">Time :</span> {{item.start_date|time:"g:i a"}}</p>
+                        {%endfor%}
+                        {%if event.registration_link%}
+                            <a href="{{event.registration_link}}" target="_blank" class="d-flex justify-content-center"><h4 class="btn btn-info">Click here to Register</h4></a>
+                    {%endif%}
+                    </div>
+                </div>
+                {%endtimezone%}
+                {%endautoescape%}
+            </div>
+            {%endfor%}
+
+        </div>
+    </div>
+{%endif%}
+    <!-- Styles -->
+    <style>
+        .btn {
+            color: white;
+        }
+        .container {
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+        h1,
+        h2,
+        h4 {
+            color: white;
+        }
+
+        h1 {
+            font-family: 'Fjalla One', sans-serif;
+            font-weight: 400;
+            font-size: 3rem;
+        }
+
+        h4 {
+            font-family: 'Archivo Narrow', sans-serif;
+        }
+
+        h2 {
+            font-family: 'Archivo Narrow', sans-serif;
+        }
+
+        p {
+            /*text-align: justify;*/
+            color: #f2f2f2;
+            font-size: 1.25rem;
+            /*font-family: 'Baloo Tamma 2', cursive;*/
+        }
+
+        @media only screen and (max-width: 768px) {
+            body {
+                /*text-align: center;*/
+                align-items: center;
+                /*font-size: 1.0rem;*/
+            }
+            .ImageDiv{
+                margin-bottom: 5rem;
+                display:inline-block;
+            }
+        }
+    </style>
+
+
+{%endblock%}
+
+    <!-- JS files -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+{%block footer%}
+{%endblock%}

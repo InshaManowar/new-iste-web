@@ -1,0 +1,37 @@
+.jumbotron
+{
+	/*background-image: url('india.jpg');*/
+	background-color: #0887f5;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	margin-top: 50px;
+
+}
+.footer
+{
+	background-color: #ccdae5;
+	padding: 0.5%;
+	padding-left:1%;
+	margin-top: 50px;
+
+}
+.current{
+	margin-top: 1.5%;
+	margin-bottom: 1.5%;
+}
+
+.line{
+	border-left-style: dotted;
+}
+.line_right{
+	border-right-style: dotted;
+}
+.h{
+	text-align:center;
+}
+body{
+	padding-top:80px;
+}
+.navbar{
+	background-color:  #ef8d1c;
+}

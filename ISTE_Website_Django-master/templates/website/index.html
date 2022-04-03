@@ -1,0 +1,443 @@
+{%extends 'website/base.html'%}
+{%load static%}
+{%load websitetags%}
+{%block title%}
+Indian Society for Technical Education
+{%endblock%}
+
+{%block where%}Home Page{%endblock%}
+
+{%block other_css%}
+<link rel="stylesheet" href="{% static 'updatecss/home.css'%}">
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+{%endblock%}
+
+{%block content%}
+<div class="main">
+    <div class="main_content">
+        <p>Welcome to</p>
+        <p2
+            ><span>ISTE MANIPAL</span><br />Indian Society for Technical
+            Education</p2>
+
+    </div>
+</div>
+<section class="section1">
+    <div class="circle">
+        <div class="items">
+            <div class="text" style="--i: 1">
+                <div class="icons">
+                    <img src="{% static 'updateimages/webdev.png' %}" alt="" />
+                </div>
+            </div>
+            <div class="text" style="--i: 2">
+                <div class="icons">
+                    <img src="{% static 'updateimages/technical.png' %}" alt="" />
+                </div>
+            </div>
+
+            <div class="text" style="--i: 3">
+                <div class="icons">
+                    <img src="{% static 'updateimages/hr.png' %}" alt="" >
+                </div>
+            </div>
+
+            <div class="text" style="--i: 4">
+                <div class="icons">
+                    <img src="{% static 'updateimages/ai.png' %}" alt="" />
+                </div>
+            </div>
+            <div class="text" style="--i: 5">
+                <div class="icons">
+                    <img src="{% static 'updateimages/programming.png' %}" alt="" />
+                </div>
+            </div>
+            <div class="text" style="--i: 6">
+                <div class="icons">
+                    <img src="{% static 'updateimages/gd.png' %}" alt="" />
+                </div>
+            </div>
+            <div class="text" style="--i: 7">
+                <div class="icons">
+                    <img src="{% static 'updateimages/appdev.png' %}" alt="" />
+                </div>
+            </div>
+
+            <div class="text" style="--i: 8">
+                <div class="icons">
+                    <img src="{% static 'updateimages/webdev.png' %}" alt="" />
+                </div>
+            </div>
+            <div class="text" style="--i: 9">
+                <div class="icons">
+                    <img src="{% static 'updateimages/technical.png' %}" alt="" />
+                </div>
+            </div>
+            <div class="text" style="--i: 10">
+                <div class="icons">
+                    <img src="{% static 'updateimages/ai.png' %}" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about" id="about">
+        <div class="contentBx">
+                <h2 class="heading" data-aos="fade-right">About Us</h2>
+                <p class="text" data-aos="fade-right" data-aos-delay="300"><span class="bigger">A Multi-disciplinary club, Indian Society for Technical Education (ISTE) is one of the reputed and esteemed 
+                  Technical Clubs in Manipal.</span><br> <br> We are well known for hosting ACUMEN, the most popular category in TECHTATVA; and various internal/external workshops, 
+                  webinars and, summer and winter schools which help in the overall development of our members. We have a wide range of departments and a great level of flexibility within them 
+                  for our members to learn technical and non-technical skills.
+                </p>
+        </div>
+        <div class="video-container"data-aos="fade-left">
+            <video controls>
+              <source src="{% static 'updateimages/promovideo.mp4' %}" type="video/mp4">
+                <source src="{% static 'updateimages/promovideo.ogg' %}" type="video/ogg">
+            </video>						<!-- <img src="resources/About_us.png"> -->
+        </div>
+</section>
+<section id="features" class="features section">
+<h2 class="heading" data-aos="fade-up">Our Events</h2>
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+  <div class="features-content">
+    <div class="row">
+      <div class="col-lg-3" data-aos="fade-right">
+        <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
+          <div class="first-number number">
+            <img src="{% static 'updateimages/features-number-01.png'%}" alt=""><h6>01</h6>
+          </div>
+          <div class="icon"><img src="{% static 'updateimages/features-icon-black-01.png'%}" alt=""></div>
+          <h4>AMAZING TECH RACE</h4>
+          <div class="line-dec"></div>
+          <p>Run around manipal in this amazing treasure hunt.There are 2 rounds where you race against time using both mind and muscles and find treasure around you in the campus.</p>
+        </div>
+      </div>
+      <div class="col-lg-3" data-aos="fade-right">
+        <div class="features-item second-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+          <div class="second-number number">
+            <img src="{% static 'updateimages/features-number-02.png'%}" alt=""><h6>02</h6>
+          </div>
+          <div class="icon"><img src="{% static 'updateimages/features-icon-black-02.png'%}" alt=""></div>
+          <h4>MANIPAL INTELLIGENCE QUOTIENT</h4>
+          <div class="line-dec"></div>
+          <p>Exercise your IQ in the maze of puzzles.MIQ has 2 rounds . Here you wake up Garry Kasparov in yourself to make calculated moves through a series of puzzles and game.</p>
+        </div>
+      </div>
+      <div class="col-lg-3" data-aos="fade-left">
+        <div class="features-item first-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+          <div class="third-number number">
+            <img src="{% static 'updateimages/features-number-03.png'%}" alt=""><h6>03</h6>
+          </div>
+          <div class="icon"><img src="{% static 'updateimages/features-icon-black-01.png'%}" alt=""></div>
+          <h4>AIB</h4>
+          <div class="line-dec"></div>
+          <p>This event tests participants based on their ability to deduce solutions to problems from basic knowledge of science and technology.AIB has 3 rounds where you show your love for technology in Manipal's most exciting Tech quiz.</p>
+        </div>
+      </div>
+      <div class="col-lg-3" data-aos="fade-left">
+        <div class="features-item second-feature last-features-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+          <div class="fourth-number number">
+            <img src="{% static 'updateimages/features-number-04.png'%}" alt=""><h6>04</h6>
+          </div>
+          <div class="icon"><img src="{% static 'updateimages/features-icon-black-02.png'%}" alt=""></div>
+          <h4>HOPELESS OPUS</h4>
+          <div class="line-dec"></div>
+          <p>HOPELESS OPUS is an online event in Acumen. It has some amazing online race where the gamers face 3 options where they are introduced to osteoporosis apocalyptic world. These options are of three kinds having direct solutions, long paths and dead ends.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-lg-12">
+  <div class="skills-content">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="skill-item" data-aos="zoom-in" data-wow-duration="1s" data-wow-delay="0s">
+          <div class="progress" data-percentage="80">
+            <span class="progress-left">
+              <span class="progress-bar"></span>
+            </span>
+            <span class="progress-right">
+              <span class="progress-bar"></span>
+            </span>
+            <div class="progress-value">
+              <div>
+                80%<br>
+                <span>HTML/CSS/JS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+                        <div class="skill-item" data-aos="zoom-in" data-wow-duration="1s" data-wow-delay="0s">
+          <div class="progress" data-percentage="60">
+            <span class="progress-left">
+              <span class="progress-bar"></span>
+            </span>
+            <span class="progress-right">
+              <span class="progress-bar"></span>
+            </span>
+            <div class="progress-value">
+              <div>
+                60%<br>
+                <span>Wordpress</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+                        <div class="skill-item" data-aos="zoom-in" data-wow-duration="1s" data-wow-delay="0s">
+          <div class="progress" data-percentage="90">
+            <span class="progress-left">
+              <span class="progress-bar"></span>
+            </span>
+            <span class="progress-right">
+              <span class="progress-bar"></span>
+            </span>
+            <div class="progress-value">
+              <div>
+                90%<br>
+                <span>Marketing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+                        <div class="skill-item" data-aos="zoom-in" data-wow-duration="1s" data-wow-delay="0s">
+          <div class="progress" data-percentage="70">
+            <span class="progress-left">
+              <span class="progress-bar"></span>
+            </span>
+            <span class="progress-right">
+              <span class="progress-bar"></span>
+            </span>
+            <div class="progress-value">
+              <div>
+                70%<br>
+                <span>Photoshop</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<!--cards section ends-->
+<!-- ***** Home Parallax Start ***** -->
+<div class="left-image-decor"></div>
+<div id="gallery" class="Gallery">
+  <div class="container">
+    <div class="row display_boxflex">
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margi_bott">
+            <div class="Gallery_img">
+              <figure><img src="{% static 'updateimages/gallery1.jpg'%}" alt="#"/></figure>
+            </div>
+            <div class="hover_box">
+              <ul class="icon_hu">
+                 <h3>Science</h3>
+                <li><a href="https://blog.istemanipal.com/articles/single/metaverse-is-it-good-or-bad/61b6eb489875c05d88c24ac0"><img src="{% static 'updateimages/h.png'%}" alt="#"/></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margi_bott">
+            <div class="Gallery_img">
+              <figure><img src="{% static 'updateimages/gallery2.jpg'%}" alt="#"/></figure>
+            </div>
+            <div class="hover_box">
+
+              <ul class="icon_hu">
+                 <h3>Cyber Tech</h3>
+                <li><a href="https://blog.istemanipal.com/articles/single//5f2ab869d757df4b8700fb7f/"><img src="{% static 'updateimages/h.png'%}" alt="#"/></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margi_bott1">
+            <div class="Gallery_img">
+              <figure><img src="{% static 'updateimages/gallery3.jpg' %}" alt="#"/></figure>
+            </div>
+            <div class="hover_box">
+
+              <ul class="icon_hu">
+                 <h3>Social</h3>
+                <li><a href="https://blog.istemanipal.com/articles/single//5f1d1facaf71a373f033f0cc/"><img src="{% static 'updateimages/h.png'%}" alt="#"/></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            <div class="Gallery_img">
+              <figure><img src="{% static 'updateimages/gallery4.jpg' %}" alt="#"/></figure>
+            </div>
+            <div class="hover_box">
+
+              <ul class="icon_hu">
+                 <h3>Science</h3>
+                <li><a href="https://blog.istemanipal.com/articles/single//5f423b1fd757df4b8700fb83/"><img src="{% static 'updateimages/h.png'%}" alt="#"/></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+        <div class="Gallery_text">
+          <div class="titlepage">
+                        <h2 class="heading" data-aos="zoom-in" data-wow-duration="1s" data-wow-delay="0s">The Technical Prophet</h2>
+          </div>
+          <p data-aos="zoom-in" data-wow-duration="1s" data-wow-delay="0s">ISTE Manipal has its own blog which gets a large number of views even from countries like Egypt. Here are some snaps from the same.</p>
+          <a href="https://blog.istemanipal.com/">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end Gallery -->
+<div class="right-image-decor"></div>
+
+<!-- ***** Home Parallax End ***** -->
+
+<!---BLOGS PAGE DESIGN STARTS------------------>
+<!-- =============== how it works =============== -->
+<section id="how-it-works" class="parallax">
+<!-- =============== container =============== -->
+<div class="container">
+
+ <div class="row">
+
+     <div class="col-xs-12 col-sm-12 col-md-12 wow bounceIn animated headding" data-wow-delay=".5s">
+         <h2 class="heading1" data-aos="fade-up">Our App</h2>
+             <p>Display your mobile apps awesome features with icon lists and an image carousel of each page. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.</p>
+     </div>
+
+    <div class="col-xs-12 col-sm-4 col-md-4">
+         <div class="row">
+            <div class="col-xs-10 col-sm-10 col-md-10 wow fadeInLeft animated textright" data-wow-delay=".5s">
+                <h3>Lorem ipsum</h3>
+                    <p>A dynamic platform for access to ISTE blogs on various technical and non-technical topics.</p>
+            </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 wow fadeInRight animated" data-wow-delay=".5s">
+                        <i class="fab fa-book iconfont"></i>
+            </div>
+        </div>
+        <div class="row">
+         <div class="col-xs-10 col-sm-10 col-md-10 wow fadeInLeft animated textright" data-wow-delay=".6s">
+                <h3>Lorem ipsum</h3>
+                    <p> A treat to our enthusiastic technophile friends, as you would be the first one to receive the latest updates about our upcoming events.
+</p>
+            </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 wow fadeInRight animated" data-wow-delay=".6s">
+                    <i class="fab fa-apple iconfont"></i>
+            </div>
+        </div>
+        <div class="row">
+         <div class="col-xs-10 col-sm-10 col-md-10 wow fadeInLeft animated textright" data-wow-delay=".7s">
+                <h3>Lorem ipsum</h3>
+                    <p>A savior for all, because of its wide range of practice interview questions in order to ace your interviews. </p>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 wow fadeInRight animated" data-wow-delay=".7s">
+                <i class="fab fa-apple iconfont"></i>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4 col-md-4 wow bounceIn animated textcenter" data-wow-delay=".4s">
+     <img src="{% static 'updateimages/slide-bg.png'%}" style="height: 100%;" alt="slide-bg" class="appimg" />
+    </div>
+
+    <div class="col-xs-12 col-sm-4 col-md-4">
+         <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 wow fadeInLeft animated" data-wow-delay=".5s">
+                        <i class="fab fa-android iconfont2"></i>
+            </div>
+            <div class="col-xs-10 col-sm-10 col-md-10 wow fadeInRight animated textleft" data-wow-delay=".5s">
+                <h3>Lorem ipsum</h3>
+                    <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum.</p>
+            </div>
+
+        </div>
+        <div class="row">
+        <div class="col-xs-2 col-sm-2 col-md-2 wow fadeInLeft animated" data-wow-delay=".6s">
+            <i class="fab fa-android iconfont2"></i>
+            </div>
+            <div class="col-xs-10 col-sm-10 col-md-10 wow fadeInRight animated textleft" data-wow-delay=".6s">
+                <h3>Lorem ipsum</h3>
+                    <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum.</p>
+            </div>
+
+        </div>
+        <div class="row">
+        <div class="col-xs-2 col-sm-2 col-md-2 wow fadeInLeft animated" data-wow-delay=".7s">
+            <i class="fab fa-android iconfont2"></i>
+            </div>
+            <div class="col-xs-10 col-sm-10 col-md-10 wow fadeInRight animated textleft" data-wow-delay=".7s">
+                <h3>Lorem ipsum</h3>
+                    <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+<!-- =============== container end =============== -->
+</section>
+
+<!---------------------BLOGS PAGE DESIGN STARTS------------------>
+<div id="fullpage" class="fullpage-default">
+<div class="section animated-row" data-section="slide07">
+        <div class="section-inner">
+                <div class="row justify-content-center">
+                        <div class="col-md-7 wide-col-laptop">
+                                <div class="title-block animate" data-animate="fadeInUp">
+                                    <h2 class="heading1" data-aos="fade-up">Get in Touch</h2>
+                                </div>
+                                <div class="contact-section">
+                                        <div class="row">
+                                                <div class="col-md-6 animate" data-animate="fadeInUp">
+                                                        <div class="contact-box">
+                                                                <div class="contact-row">
+                                                                        <i class="fa fa-map-marker"></i> MIT Manipal
+                                                                </div>
+                                                                <div class="contact-row">
+                                                                        <i class="fa fa-phone"></i> 090 080 0210
+                                                                </div>
+                                                                <div class="contact-row">
+                                                                        <i class="fa fa-envelope"></i> info@company.co
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="col-md-6 animate" data-animate="fadeInUp">
+                                                        <form id="ajax-contact" method="post" action="#">
+                                                                <div class="input-field">
+                                                                        <input type="text" class="form-control" name="name" id="name" required placeholder="Name">
+                                                                </div>
+                                                                <div class="input-field">
+                                                                        <input type="email" class="form-control" name="email" id="email" required placeholder="Email">
+                                                                </div>
+                                                                <div class="input-field">
+                                                                        <textarea class="form-control" name="message" id="message" required placeholder="Message"></textarea>
+                                                                </div>
+                                                                <button class="btn" type="submit">Submit</button>
+                                                        </form>
+                                                        <div id="form-messages" class="mt-3"></div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>
+</div>
+{%endblock%}

@@ -1,0 +1,168 @@
+{%extends 'website/base.html'%}
+{%load static%}
+{%block title%}
+Acumen
+{%endblock%}
+
+{%block where%}
+Acumen Page
+{%endblock%}
+
+{%block other_css%}        
+
+<link rel="stylesheet" href="{% static 'updatecss/acumen.css'%}" />
+<meta name="description" content="ISTE Manipal organizes one of the biggest categories in TechTatva called Acumen. Acumen has four major events Amazing Tech Race, Manipal Intelligence Quotient, AIB and Hopeless Opus">
+
+{%endblock%}
+
+
+{%block content%}
+<!DOCTYPE html>
+<section lang="en">
+
+   
+    <body>
+        <div class="lp">
+            <section class="container-fluid">
+                <!-- Background animtion-->
+                <div class="light x1"></div>
+                <div class="light x2"></div>
+                <div class="light x3"></div>
+                <div class="light x4"></div>
+                <div class="light x5"></div>
+                <div class="light x6"></div>
+                <div class="light x7"></div>
+                <div class="light x8"></div>
+                <div class="light x9"></div>
+
+                <!-- header -->
+
+                <header>
+              
+                	  
+                    <p id="head" class="header1">
+                        <img class="acumenlogo" src="{% static 'updateimages/Group.png' %}" /><br/>ACUMEN
+                    </p>
+                    <div class="content">
+                        <p id="head2" class="header">One of the most Thrilling</p>
+                        <p id="head3" class="header">Most Participated</p>
+                        <p id="head4" class="header">Category of Tech-Tatva</p>
+                        <p id="head5" class="header">Hop in now!</p>
+                    </div>
+                </header>
+            </section>
+        </div>
+        <section id="about" class="content-section clearfix">
+            <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+            <h2 class="section-title center">STATS</h2>
+              </div>
+          </div>
+          <div class="row">
+
+              <div class="col-md-4 animated-item feature-item fadeInUp" data-delay="200">
+            <span class="feature-icon"><i class="fas fa-money-bill-alt"></i></span>
+            <div class="feature-info">
+                <h3 class="feature-title"><span></span>Earn Pocket Money</h3>
+                <p>One can win upto Rs 10,000 by participating in the ACUMEN. By just tresure hunt, some simple Science quizes and experiment, Acumen provide you a easy win over other Category</p>
+            </div>
+              </div>
+
+              <div class="col-md-4 animated-item feature-item fadeInUp" data-delay="300">
+            <span class="feature-icon"><i class="fas fa-network-wired"></i></span>
+            <div class="feature-info">
+                <h3 class="feature-title"><span></span>Connect To People</h3>
+                <p>Acumen is a highest participating category in TechTatva. Every year more than 1000 students take part in Acumen. No other Category is able to surpass this record.</p>
+            </div>
+              </div>
+
+              <div class="col-md-4 animated-item feature-item fadeInUp" data-delay="400">
+            <span class="feature-icon"><i class="fas fa-stopwatch"></i></span>
+            <div class="feature-info">
+                <h3 class="feature-title"><span></span>Reach Your Top</h3>
+                <p>ACUMEN provides a platform for aptitude and intellect. The events require participants to showcase the skills of critical analysis and out-of-box thinking to slice through complex problems, treasure hunts, and puzzles.</p>
+            </div>
+              </div>
+
+          </div>
+        </div>
+      </section>
+        <div class="events container-fluid text-center">
+          <div class="row">
+              <div class="col-md-12">
+            <h2 class="section-title center">Events</h2>
+              </div>
+          </div>
+            <div class="row text-center justify-content-around">
+                <div class="box col-lg-4 cards" data-aos="fade-right">
+                  <p class = "headline">A TREASURE HUNT LIKE NO OTHER</p>
+                    <h2 class="head" style="font-family: Poppins;">Amazing Tech Race</h2>
+                    <p class="content">
+                        Run around Manipal in this amazing treasure hunt. There are 2 rounds where you race against time using both mind and muscle and find hidden treasure in campus.
+                    </p>
+                </div>
+                <div class="box col-lg-4 cards" data-aos="fade-right">
+                  <p class = "headline">TEST YOUR IQ</p>
+                    <h2 class="head" style="font-family: Poppins;">Manipal Intelligence Quotient</h2>
+                    <p class="content">
+ Here you wake up Garry Kasparov in yourself to make calculated moves through a series of puzzles and games and show off your presence of IQ.
+                    </p>
+                </div>
+                <div class="box col-lg-4 cards" data-aos="fade-right">
+                  <p class = "headline">NOT THE AIB YOU KNOW</p>
+                    <h2 class="head" style="font-family: Poppins;">AIB</h2>
+                    <p class="content">
+                        This event tests participants based on their ability to deduce solutions to problems from basic knowledge of science and technology. </p>
+                </div>
+
+
+
+                <div class="box col-lg-4 cards" data-aos="fade-up" data-aos-offset="130">
+                  <p class = "headline">THE ONLINE ONE</p>
+                    <h2 class="head" style="font-family: Poppins;">Hopeless Opus</h2>
+                    <p class=" content ">
+                        HOPELESS OPUS is an online event in Acumen. It has some amazing online race where the gamers face 3 options where they are introduced to osteoporosis apocalyptic world.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <!--footer starts-->
+       
+        <script type="text/javascript">
+          const hamburger = document.querySelector('.hamburger');
+          const mobile_menu = document.querySelector('.mobile-nav');
+          hamburger.addEventListener('click', function () {
+              hamburger.classList.toggle('is-active');
+              mobile_menu.classList.toggle('is-active');
+          })
+          (function ($) {
+            "use strict";
+
+            //Animation
+
+            $(document).ready(function () {
+              $("body.hero-anime").removeClass("hero-anime");
+            });
+
+            //Menu On Hover
+
+            $("body").on("mouseenter mouseleave", ".nav-item", function (e) {
+              if ($(window).width() > 750) {
+                var _d = $(e.target).closest(".nav-item");
+                _d.addClass("show");
+                setTimeout(function () {
+                  _d[_d.is(":hover") ? "addClass" : "removeClass"]("show");
+                }, 1);
+              }
+            });
+          });
+        </script>
+    </body>
+</section>
+
+        
+
+
+{%endblock%}

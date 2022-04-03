@@ -1,0 +1,537 @@
+{%extends 'website/base.html'%}
+{%load static%}
+
+
+
+
+{%block title%}
+ISTE | Events
+{%endblock%}
+
+{%block where%}
+Our Events
+{%endblock%}
+
+{%block other_css%}
+
+<link rel="stylesheet" href="{% static 'css_events/magnific-popup.css'%}">
+<link rel="stylesheet" href="{% static 'updatecss/events.css'%}">
+
+<link rel="stylesheet" href="{% static 'css_events/aos.css'%}">
+
+<link rel="stylesheet" href="{% static 'css_events/ionicons.min.css'%}">
+
+<link rel="stylesheet" href="{% static 'css_events/bootstrap-datepicker.css'%}">
+<link rel="stylesheet" href="{% static 'css_events/jquery.timepicker.css'%}">
+
+
+
+{%endblock%}
+
+{%block extra_meta_tags%}
+<meta name="description" name="ISTE Manipal has conducted several workshops and events, both internal and external. The most notable ones include TechTalk, TechWeek and many more"/>
+
+<meta property="og:title" content="ISTE Manipal Events" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="ISTE Manipal has conducted several workshops and events, both internal and external. The most notable ones include TechTalk, TechWeek and many more" />
+<meta property="og:image" itemprop="image" content="https://istemanipal.com/static/img/iste.png" />
+<meta property="og:url" content="https://istemanipal.com/events"/>
+
+<meta property="og:image:type" content="image/jpeg">
+
+<!-- Size of image. Any size up to 300. Anything above 300px will not work in WhatsApp -->
+<meta property="og:image:width" content="300">
+<meta property="og:image:height" content="300">
+
+{%endblock%}
+
+
+{%block content%}
+{% load tz %} 
+{%timezone "Asia/Kolkata"%}
+
+  <div class="container-fluid">
+    <div class="row justify-content-around" id="banner">
+      <div class="col-md-5" id="bannertext">
+        <h1 style="font-family: Ubuntu;">Our <span class="vector" style="font-family: Ubuntu;"> Events</span></h1>
+        <p  style="font-family: Ubuntu;">
+          ISTE organizes various events throughout an academic year. The workshops and events organized by the club prove very usefull for the students of MIT and they get to learn a lot. A common feedback received by the club is that they organize very informative workshops and interesting events.
+        </p>
+      </div>
+
+      <div
+        class="col-md-6"
+        id="bannerimg"
+        data-aos="zoom-in"
+        data-aos-offset="100"
+      >
+        <img src="{% static 'updateimages/ill2 1.png' %}" alt="" class="img-fluid" />
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid timer" id="timer" data-aos="zoom-out-up">
+    <div class="row justify-content-around">
+      <div class="col-md-6 countdown_timer" id="timer_box">
+        <div class="row">
+          <div class="col-md-12" id="countdown_h2">
+            <h2>
+              <span style="font-family:Ubuntu" id="upcoming-event"
+                >Upcoming Events</span
+              >
+            </h2>
+          </div>
+        </div>
+        {%if active%}
+        {%for event in active%}
+        <div class="row justify-content-center" id="countdown_h1">
+          <div class="col-md-12">
+            <h1 id="event-name">
+              <span id="event_name_span">{{event.name}}</span>
+            </h1>
+          </div>
+        </div>
+        <div class="row justify-content-center" id="countdown_p">
+          <div class="col-sm-12">
+            <p>{{event.start_date|date:"dS F Y"}} {{event.start_date|time:"G:i:s"}}{%if event.end_date%} to {{event.end_date|date:"dS F Y"}} {{event.end_date|time:"G:i:s"}}{%endif%}</p>
+          </div>
+        </div>
+        <!--Timer-->
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <div class="row justify-content-center"></div>
+            <div class="container">
+              <div id="countdown">
+                <ul>
+                  <div class="time" id="days{{forloop.counter}}"></div>
+                  <div class="time pl-3" id="hours{{forloop.counter}}"></div>
+                  <div class="time pl-3" id="minutes{{forloop.counter}}"></div>
+                  <div class="time pl-3" id="seconds{{forloop.counter}}"></div>
+                </ul>
+              </div>
+              {%endfor%}
+              {%else%}
+              <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">No Events to show</h1>
+              {%endif%}
+              <div class="row justify-content-center">
+                <div class="col-sm-8">
+                  <a href="summerschool.html" target="_blank">
+                    <button class="register">Register Now</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="four col-md-3">
+        <div class="counter-box colored">
+          <i class="fa fa-users"></i> <span class="counter">1147</span>
+          <p>Total Participants</p>
+        </div>
+      </div>
+      <div class="four col-md-3">
+        <div class="counter-box">
+          <i class="fa fa-paperclip"></i> <span class="counter">875</span>
+          <p>Total Submissions</p>
+        </div>
+      </div>
+      <div class="four col-md-3">
+        <div class="counter-box">
+          <i class="fa fa-certificate"></i> <span class="counter">589</span>
+          <p>Certificates Distributed</p>
+        </div>
+      </div>
+      <div class="four col-md-3">
+        <div class="counter-box">
+          <i class="fa fa-check"></i> <span class="counter">63</span>
+          <p>Total Events Organized</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% comment %} 
+
+  <section class="ftco-section services-section bg-primary" style="padding: 3em 0;">
+    <div class="container">
+      <div class="row d-flex " >
+        <div class="col-md-3 d-flex align-self-stretch  ftco-animate" style="text-align: center;">
+          <div class="media block-6 services d-block">
+            <div class="icon"><img class="workshop" src="{%static 'images/lecture.png'%}" height= "80rem" width= "80rem"></div>
+            <div class="media-body">
+              <h3 class="heading mb-3">Workshops</h3>
+              <p>ISTE Organises various workshops throghout the semester covering all the domains ranging from leading softwares such as AutoCad all the way upto web dev and ML</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 d-flex align-self-stretch ftco-animate" style="text-align: center;">
+          <div class="media block-6 services d-block">
+            <div class="icon"><img class="techWeek" src="{%static 'images\coding.png'%}" height= "80rem" width= "80rem"></div>
+            <div class="media-body">
+              <h3 class="heading mb-3">Tech Week</h3>
+              <p>Techweek is a exciting week full of technical events, quizes, workshops, TechTalks and much more enough to make you well acquainted with all the latest trends in technology </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 d-flex align-self-stretch ftco-animate" style="text-align: center;">
+          <div class="media block-6 services d-block">
+            <div class="icon"><img class="summerSchool" src="{%static 'images\student.png'%}" height= "80rem" width= "80rem"></div>
+            <div class="media-body">
+              <h3 class="heading mb-3">Summer School</h3>
+              <p>Summer School is an open-for-all crash course kind of workshop held in the summer break.These workshops are designed to make your foundations strong and focuses both on theory and practical</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 d-flex align-self-stretch ftco-animate" style="text-align: center;">
+          <div class="media block-6 services d-block">
+            <div class="icon"><img class="winterSchool" src="{%static 'images\studying.png'%}" height= "80rem" width= "80rem"></div>
+            <div class="media-body">
+              <h3 class="heading mb-3">Winter School</h3>
+              <p>Winter school is an internal event held in the winter break where working committee are provided with various crash courses in various field such as ML,AI Web Dev,python,Graphics etc. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> {% endcomment %}
+
+  {% comment %} <section class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-5 p-md-2 img img-2 d-flex justify-content-center align-items-center" style ="margin-right='150px'">
+    <img src="{%static 'images\development.png'%}"  style="max-width:100%;height:auto;" >
+            </div>
+            <div class="col-md-7 wrap-about py-md-5 ftco-animate">
+      <div class="heading-section  pt-5 pl-md-5">
+          <div class="pr-md-5 mr-md-5">
+            <h2 class="mb-4">Events conducted by us</h2>
+        </div>
+        <p>ISTE Student’s Chapter, Manipal is Manipal’s largest Multi-Domain Club, i.e, it is not specifically oriented to cater to only Computer Science students or Electronic Students, rather it believes in development for all the students who become a part of the club.</p>
+        <p>ISTE organizes various events throughout an academic year. The workshops and events organized by the club prove very usefull for the students of MIT and they get to learn a lot. A common feedback received by the club is that they organize very informative workshops and interesting events. ISTE organizes various workshops such as Intro to GIT, Python: basic to advance, OpenCV and much more. Apart from workshops ISTE has its own Tech Week.This is club’s flagship event of even semester. The TechWeek brings in all the different domains of engineering into a series of events. TechWeek has many events like “Watt Up”, “ExQUIZite”, “Clueless”, “Unlockathon” and “Clash of Codes”. The TechWeek had a participation of over 1200 people including both Online and Offline event. ISTE also has a lot to offer even if you're not in the campus.In summer and winter breaks ISTE organizes summer and winter school which is a crash course of latest technologies taught by none other than your own seniors.If all that was not enough then guess what ISTE is the only club to organize on-demand workshops.</p>
+      </div>
+            </div>
+        </div>
+    </div>
+</section> {% endcomment %}
+<div class="container events">
+  <div class="row justify-content-between">
+    <div class="box col-lg-3 cards" data-aos="fade-right">
+      <h2 class="head" style="text-align: center">Workshops</h2>
+      <p
+        class="content"
+        style="
+          font-family: Poppins !important;
+          padding: 2% !important;
+          font-size: 1.4rem;
+        "
+      >
+        ISTE organizes various workshops throughout the semester covering
+        all the domains ranging from leading softwares such as AutoCad all
+        the way upto web dev and ML
+      </p>
+    </div>
+
+    <div class="box col-lg-3 cards" data-aos="fade-up">
+      <h2 class="head" style="text-align: center">TechWeek</h2>
+      <p
+        class="content"
+        style="
+          font-family: Poppins !important;
+          padding: 2% !important;
+          font-size: 1.4rem;
+        "
+      >
+        Techweek is a exciting week full of technical events, quizes,
+        workshops, TechTalks and much more enough to make you well
+        acquainted with all the latest trends in technology.
+      </p>
+    </div>
+
+    <div class="box col-lg-3 cards" data-aos="fade-left">
+      <h2 class="head" style="text-align: center">Winter School</h2>
+      <p
+        class="content"
+        style="
+          font-family: Poppins !important;
+          padding: 2% !important;
+          font-size: 1.4rem;
+        "
+      >
+        Winter school is an internal event held in the winter break where
+        working committee are provided with various crash courses in various
+        field such as ML,AI Web Dev,python,Graphics etc.
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div
+      class="box col-lg-3 cards"
+      data-aos="fade-up"
+      data-aos-offset="130"
+    >
+      <h2 class="head" style="text-align: center">Summer School</h2>
+      <p
+        class="content"
+        style="
+          font-family: Poppins !important;
+          padding: 2% !important;
+          font-size: 1.4rem;
+        "
+      >
+        Summer School is an open-for-all crash course kind of workshop held
+        in the summer break.These workshops are designed to make foundations
+        strong and focuses both on theory and practical
+      </p>
+    </div>
+  </div>
+</div>
+{% comment %} 
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+  <div class="col-md-7 text-center heading-section ftco-animate">
+    <h2 class="mb-3">Past Events</h2>
+  </div>
+</div>
+<div class="ftco-schedule">
+            <div class="row">
+    <div class="col-md-3 nav-link-wrap text-center text-md-right">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          {%if workshops%}
+          <a class="nav-link ftco-animate active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Workshops <span>Introduction to new technical skils</span></a>
+          {%endif%}
+          {%if techweek%}
+          <a class="nav-link ftco-animate" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Tech Week <span>A week of exciting workshops,coding competitons and TechTalks</span></a>
+          {%endif%}
+          {%if vocational%}
+          <a class="nav-link ftco-animate" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Vocational Courses <span>Learn bleeding edge technologies in your vacations</span></a>
+          {%endif%}
+        </div>
+      </div>
+      <div class="col-md-9 tab-wrap">
+
+        <div class="tab-content" id="v-pills-tabContent">
+
+          <div class="tab-pane fade show active" style="margin-top: 2rem;" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
+              {%for event in workshops%}
+              <div class="speaker-wrap ftco-animate d-md-flex">
+                  <!--<div class="img speaker-img" style="background-image: url(images/code.png);"></div>-->
+                  <div class="text events-text">
+                      <h2><a>{{event.name}}</a></h2>
+                      <p>{{event.description}}</p>
+                  </div>
+              </div>
+              {%endfor%}
+    
+        </div>
+        
+
+
+
+          <div class="tab-pane fade" style="margin-top: 2rem;" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-day-2-tab">
+
+                {%for event in techweek%}
+              <div class="speaker-wrap ftco-animate d-md-flex">
+                  <!--<div class="img speaker-img" style="background-image: url(images/wattup.jpg);"></div>-->
+                  <div class="text events-text">
+                      <h2><a>{{event.name}}</a></h2>
+                      <p>{{event.description}}</p>
+                      
+                  </div>
+              </div>
+              {%endfor%}
+          </div>
+
+
+          <div class="tab-pane fade" style="margin-top: 2rem;" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-day-3-tab">
+                {%for event in vocational%}
+                <div class="speaker-wrap ftco-animate d-md-flex">
+                  <div class="text events-text">
+                      <h2><a>{{event.name}}</a></h2>
+                      <p>{{event.description}}</p>
+                      
+                  </div>
+              </div>
+              {%endfor%}
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+    </div>
+</section>
+
+
+<section class="ftco-section ftco-gallery ftco-no-pt">
+    <div class="container-fluid px-4">
+        <div class="row justify-content-center mb-5">
+      <div class="col-md-7 text-center heading-section ftco-animate">
+        <h2 class="mb-3">Gallery</h2>
+      </div>
+    </div>
+        <div class="row">
+                <div class="col-md-3 ftco-animate">
+                    <a href="{%static 'img/gallery1.jpg'%}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({%static 'img/gallery1.jpg'%});"></a>
+                </div>
+                <div class="col-md-3 ftco-animate">
+                    <a href="{%static 'img/gallery2.jpg'%}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({%static 'img/gallery2.jpg'%});"></a>
+                </div>
+                <div class="col-md-3 ftco-animate">
+                    <a href="{%static 'img/gallery3.jpg'%}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({%static 'img/gallery3.jpg'%});"></a>
+                </div>
+                <div class="col-md-3 ftco-animate">
+                    <a href="{%static 'img/gallery4.jpg'%}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({%static 'img/gallery4.jpg'%});"></a>
+                </div>
+    </div>
+    </div>
+</section>
+
+<section class="ftco-section testimony-section ftco-no-pt">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 text-center heading-section ftco-animate">
+        <h2 class="mb-3">Tech Talk</h2>
+      </div>
+    </div>
+    <div class="row ftco-animate">
+      <div class="col-md-12">
+        <div class="carousel-testimony owl-carousel ftco-owl">
+          <div class="item">
+            <div class="testimony-wrap text-center py-4 pb-5">
+              <div class="user-img mb-4" style="background-image: url(static/images/AI.png)">
+              </div>
+              <div class="text pt-4">
+                <p class="mb-4">A talk on introduction to ML, Deep Learning and AI (NLP included), topics such as how to get started, what all projects you can do, online community.</p>
+                <p class="name">Dhiman Chatterjee</p>
+                <span class="position">PR Head</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap text-center py-4 pb-5">
+              <div class="user-img mb-4" style="background-image: url(static/images/web.png)">
+              </div>
+              <div class="text pt-4">
+                <p class="mb-4">A complete insight to web development world. Covering all the topics from what is frontend and backend all the way to making web apps using server side language. A complete roadmap to WebDevelopment.</p>
+                <p class="name">Narayan Hari Mittal</p>
+                <span class="position">Web Dev Head</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap text-center py-4 pb-5">
+              <div class="user-img mb-4" style="background-image: url(static/images/arduino.png)">
+              </div>
+              <div class="text pt-4">
+                <p class="mb-4">A talk on Arduino, how to get started,what all projects to consider, benefits of learning arduino and scope of it, technical aspects of arduino all these topics were covered.</p>
+                <p class="name">Rajeev Veeraraghavan</p>
+                <span class="position">Treasurer</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap text-center py-4 pb-5">
+              <div class="user-img mb-4" style="background-image: url(static/images/android.png)">
+              </div>
+              <div class="text pt-4">
+                <p class="mb-4">A talk on AppDev and GSoC covering various aspects of GSoC from how to choose an open source project to what all rounds are there and how to tackle them and concluding the talk by shedding some lights on AppDev ,how to get started, native vs cross platform.</p>
+                <p class="name">Ishan</p>
+                <span class="position">GSoCer</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap text-center py-4 pb-5">
+              <div class="user-img mb-4" style="background-image: url(static/images/quantum-computing.png)">
+              </div>
+              <div class="text pt-4">
+                <p class="mb-4">A mind blowing talk on quantum computing and Computational Fluid Dynamics.From topics starting from what is quantum computers all the way up to latest researchs ongoing in the field, butter fly effect and a whole lot more.</p>
+                <p class="name">Dwarak</p>
+                <span class="position">researcher</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap text-center py-4 pb-5">
+              <div class="user-img mb-4" style="background-image: url(static/images/hack.png)">
+              </div>
+              <div class="text pt-4">
+                <p class="mb-4">An interactive session on cyber security with various topics from what is cyber security , various methods to secure and exploit a system, what all skills are required to be an ethical hacker, how to gain these skills alongside managing the academics, what is OSCP and how to work for it.</p>
+                <p class="name">Ameya</p>
+                <span class="position">OSCP certified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> {% endcomment %}
+{%endtimezone%}
+
+{%endblock%}
+
+
+
+
+
+
+
+
+{%block other_js%}
+<script src="{% static 'js_events/jquery.min.js'%}"></script>
+<script src="{% static 'js_events/jquery-migrate-3.0.1.min.js'%}"></script>
+<script src="{% static 'js_events/popper.min.js'%}"></script>
+<script src="{% static 'js_events/bootstrap.min.js'%}"></script>
+<script src="{% static 'js_events/jquery.easing.1.3.js'%}"></script>
+<script src="{% static 'js_events/jquery.waypoints.min.js'%}"></script>
+<script src="{% static 'js_events/jquery.stellar.min.js'%}"></script>
+<script src="{% static 'js_events/owl.carousel.min.js'%}"></script>
+<script src="{% static 'js_events/jquery.magnific-popup.min.js'%}"></script>
+<script src="{% static 'js_events/aos.js'%}"></script>
+<script src="{% static 'js_events/jquery.animateNumber.min.js'%}"></script>
+<script src="{% static 'js_events/scrollax.min.js'%}"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
+<script src="{% static 'js_events/google-map.js'%}"></script>
+<script src="{% static 'js_events/main.js'%}"></script>
+{%for event in active%}
+<script>
+    function makeTimer{{forloop.counter}}() {
+
+		var endTime = new Date("{{event.start_date | date:"d F Y"}} {{event.start_date | time:"G:i:s"}} GMT+05:30");			
+		endTime = (Date.parse(endTime) / 1000);
+
+		var now = new Date();
+		now = (Date.parse(now) / 1000);
+
+        var timeLeft = endTime - now;
+        if(timeLeft<0)
+            timeLeft=0;
+
+		var days = Math.floor(timeLeft / 86400); 
+		var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+		var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+		var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+		if (hours < "10") { hours = "0" + hours; }
+		if (minutes < "10") { minutes = "0" + minutes; }
+		if (seconds < "10") { seconds = "0" + seconds; }
+
+		$("#days{{forloop.counter}}").html(days + "<span>Days</span>");
+		$("#hours{{forloop.counter}}").html(hours + "<span>Hours</span>");
+		$("#minutes{{forloop.counter}}").html(minutes + "<span>Minutes</span>");
+		$("#seconds{{forloop.counter}}").html(seconds + "<span>Seconds</span>");		
+
+}
+
+setInterval(function() { makeTimer{{forloop.counter}}(); }, 1000);
+</script>
+{%endfor%}
+{%endblock%}
+

@@ -1,0 +1,67 @@
+{%extends 'website/base.html'%}
+{%load static%}
+
+{%block title%}ISTE | Members{%endblock%}
+
+{%block extra_meta_tags%}
+<meta name="description" content="ISTE Manipal has members right from various branches including Chemical, Mechanical, Computer Science and so on. It is blessed to have a rich alumni network, which helps its members get in touch with industry experts."/>
+
+<meta property="og:title" content="ISTE Manipal Management Committee Recruitment Results" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="ISTE Manipal has members from various branches including Chemical, Mechanical, Computer Science and so on. It is blessed to have a rich alumni network, which helps its members get in touch with industry experts." />
+<meta property="og:image" itemprop="image" content="https://istemanipal.com{{mc.image.url}}" />
+<meta property="og:url" content="https://istemanipal.com{%url 'website:members'%}"/>
+
+<meta property="og:image:type" content="image/jpeg">
+
+<!-- Size of image. Any size up to 300. Anything above 300px will not work in WhatsApp -->
+<meta property="og:image:width" content="300">
+<meta property="og:image:height" content="300">
+{%endblock%}
+
+{%block other_css%}
+<link rel="stylesheet" href="{% static 'updatecss/members.css' %}" type="text/css">
+
+{%endblock%}
+
+{%block content%}
+<section class="member" id="member">
+    <p id="head" class="header">
+    Meet the<span class="vector"> Team</span>
+    </p>
+</section>
+<section class="teamsection">
+    <div class="container">
+        {%for dev in dev%}
+        <div class="card">
+            <div class="content">
+                    <div class="imgBx">
+                            <img src="{{dev.image.url}}" alt="">
+                    </div>
+                    <div class="contentBx">
+                            <h3>{{dev.name}}<br><span>{{dev.position}}</span></h3>
+                    </div>
+            </div>
+            <ul class="sci">
+       {% if dev.linkedin %}
+       <li style="--i:1">
+        <a href="{{ dev.linkedin }}" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+</li>{% endif %}
+                   {% if dev.github %}
+                   <li style="--i:2">
+                        <a href="{{dev.github}}" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a>
+                </li>{% endif %}
+                   {% if dev.instagram %}
+                   <li style="--i:2">
+                        <a href="{{dev.instagram}}" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a>
+                </li>{% endif %}
+            </ul>
+    </div>
+        {%endfor%}
+    </div>
+</section>
+{%endblock%}
+
+{%block other_js%}
+<script src="{%static 'basic/owl.carousel.js'%}"></script>
+{%endblock%}

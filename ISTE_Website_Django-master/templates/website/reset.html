@@ -1,0 +1,105 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ISTE | Password Reset</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="{%static 'images/ISTELOG.png'%}"/>
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+    
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'reset/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'reset/vendor/animate/animate.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'reset/vendor/css-hamburgers/hamburgers.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'reset/vendor/animsition/css/animsition.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'reset/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'reset/vendor/daterangepicker/daterangepicker.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'reset/css/util.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'reset/css/main.css'%}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-contact100">
+
+		<div class="wrap-contact100">
+            {%block content%}
+			<form class="contact100-form validate-form" method="POST">
+                {%csrf_token%}
+				<span class="contact100-form-title">
+					Password Reset
+				</span>
+                {%for field in form%}
+				<div class="wrap-input100 validate-input">
+                    {{field}}
+                </div>
+                {{field.errors}}
+                {%endfor%}
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn" type="submit">
+						<span>
+							<i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+							Submit
+						</span>
+					</button>
+				</div>
+            </form>
+            {%endblock%}
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+    >
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+<!--===============================================================================================-->
+	<script src="{%static 'reset/vendor/animsition/js/animsition.min.js'%}"></script>
+<!--===============================================================================================-->
+ 
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<!--===============================================================================================-->
+	<script src="{%static 'reset/vendor/select2/select2.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'reset/vendor/daterangepicker/moment.min.js'%}"></script>
+	<script src="{%static 'reset/vendor/daterangepicker/daterangepicker.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'reset/vendor/countdowntime/countdowntime.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'reset/js/main.js'%}"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>

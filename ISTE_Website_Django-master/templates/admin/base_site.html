@@ -1,0 +1,74 @@
+{%extends 'admin/base.html'%}
+
+{%load static%}
+
+{%block extrahead%}
+<link rel="icon" type="image/png" href="{%static 'images/ISTELOG.png'%}"/>
+{%endblock%}
+
+{%block extrastyle%}
+<style>
+    #footer{
+        background-color:#373737;
+        color:white;
+        text-align: center;
+        bottom: 0;
+        font-family: 'montserrat';
+      }
+   
+     
+</style>
+<style>
+    .content{
+        display: none;
+    }
+</style>
+{%endblock%}
+
+{%block title%}
+ISTE Admin
+{%endblock%}
+
+{%block branding%}
+<h1 id="site-name"><a href="{% url 'admin:index' %}"><img src="{%static 'images/ISTELOG.png'%}" height="50px" width="50px">   ISTE Admin </a></h1> 
+{%endblock%}
+
+{% block userlinks %}
+{% if site_url %}
+    <a target="__blank" href="{{ site_url }}">View Site</a> /
+{% endif %}
+{% if user.is_active and user.is_staff %}
+    {% url 'django-admindocs-docroot' as docsroot %}
+    {% if docsroot %}
+        <a href="{{ docsroot }}">Documentation</a> /
+    {% endif %}
+{% endif %}
+{% if user.has_usable_password %}
+<a href="{% url 'admin:password_change' %}">Change Password</a> /
+{% endif %}
+<a href="{% url 'admin:logout' %}">Logout</a>
+{% endblock %}
+
+
+
+{% block footer %}<div id="footer">Made by ISTE WebDev Team</div>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+
+  <script>
+      $(document).ready(function(){
+          $(".content").fadeIn("slow","linear",function(){
+          });
+      });
+      $(".content").on("unload",function(){
+          $('.content').animate({
+              top:'0px',
+              opacity:'0.5',
+
+          },"slow");
+      });
+  </script>
+{% endblock %}
+

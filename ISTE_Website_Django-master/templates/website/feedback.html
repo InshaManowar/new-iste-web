@@ -1,0 +1,99 @@
+{%load static%}
+{%spaceless%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ISTE | Feedback</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/png" href="{%static 'img/iste.png'%}"/>
+
+	<link rel="stylesheet" type="text/css" href="{%static 'contactus/vendor/bootstrap/css/bootstrap.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'contactus/fonts/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'contactus/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'contactus/vendor/animate/animate.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/css-hamburgers/hamburgers.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'contactus/vendor/animsition/css/animsition.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'contactus/vendor/select2/select2.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'contactus/vendor/daterangepicker/daterangepicker.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'contactus/css/util.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'contactus/css/main2.css'%}">
+	<meta name="description" content="Please do leave a Feedback. Your valuable feedback will help us improve our events, and expand our reach."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168942036-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-168942036-1');
+</script>
+
+
+
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+            {%autoescape off%}
+			<form class="contact100-form validate-form" method="POST">
+                {%csrf_token%}
+                {%if messages%}
+                {%for message in messages%}
+                <div class="alert alert-{{message.tags}}" role="alert">
+                    {{message}} <a href="{%url 'website:index'%}">Go Back to Main Page</a>
+                  </div>
+                {%endfor%}
+                {%endif%}
+				<span class="contact100-form-title">
+					Feedback Form
+				</span>
+                {%for field in form%}
+				<div class="wrap-input100 validate-input" >
+					{{field}}
+					<label class="label-input100" for="name">
+						{{field.label}}
+                    </label>
+                    
+                </div>
+                {{field.errors}}
+                {%endfor%}
+                {%endautoescape%}
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn" type="submit">
+							Submit
+						</button>
+					</div>
+				</div>
+
+				
+				
+			</form>
+
+
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+	<script src="{%static 'contactus/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+	<script src="{%static 'contactus/vendor/animsition/js/animsition.min.js'%}"></script>
+	<script src="{%static 'contactus/vendor/bootstrap/js/popper.js'%}"></script>
+	<script src="{%static 'contactus/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+	<script src="{%static 'contactus/vendor/select2/select2.min.js'%}"></script>
+	<script src="{%static 'contactus/vendor/daterangepicker/moment.min.js'%}"></script>
+	<script src="{%static 'contactus/vendor/daterangepicker/daterangepicker.js'%}"></script>
+	<script src="{%static 'contactus/vendor/countdowntime/countdowntime.js'%}"></script>
+	<script src="{%static 'contactus/js/main.js'%}"></script>
+
+
+</body>
+{%endspaceless%}
+</html>
